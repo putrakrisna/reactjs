@@ -1,0 +1,39 @@
+.App {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.minicart {
+    display: inline-block;
+    width: 35px;
+}
+.minicart img {
+    width: 100%;
+    height: auto;
+}
+.product-items h3 {
+    display:inline-block;
+  }
+  .product-items > a {
+    float:right;
+    display:block;
+  }
+  .product-items ul li {
+    display: block;
+    width: calc(100%/4);
+    float:left;
+  }
+  .product-items ul li span, .product-items ul li a {
+    display:block;
+    text-align:center;
+  }
+  .product-items ul li span, .product-items ul li .product-image {
+    margin:0 5px;
+  }
+  .product-items ul li .product-image {
+    width:100%;
+    height:auto; 
+  }
+  .product-items ul li .special-price {
+    color:#f00000;
+    font-weight: bold;
+  }
