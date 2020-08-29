@@ -1,59 +1,47 @@
-import React, { useState, Component, useEffect } from "react";
+import React from "react";
 import "./index.css";
-import FunctionVsClass from "./components/FunctionVsClass";
-import OrderSimpleNested from "./components/OrderSimpleNested";
-import OrderByUrlParam from "./components/OrderByUrlParam";
-import OrderByQueryParam from "./components/OrderByQueryParam";
-
-import Home from "./pages/home/index";
+import HomePage from "./pages/home";
+import UserPage from "./pages/user";
+import { Provider } from "react-redux";
+import store from "./redux/stores";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import HomePage from "./pages/home/index";
-
 
 function Navigation() {
   return (
     <>
-    <Router>
-      <div>
-        <ul>
-          <li> <Link to="/">Home</Link> </li>
-          <li> <Link to="/FunctionVsClass">FunctionVsClass</Link> </li>
-          <li> <Link to="/OrderSimpleNested">OrderSimpleNested</Link> </li>
-          <li> <Link to="/OrderByUrlParam">OrderByUrlParam</Link> </li>
-          <li> <Link to="/OrderByQueryParam">OrderByQueryParam</Link> </li>
+      <Router>
+        <ul style={{ border: "1px solid red" }}>
+          <li>
+            {" "}
+            <Link to="/">Home</Link>{" "}
+          </li>
+          <li>
+            {" "}
+            <Link to="/user">User</Link>{" "}
+          </li>
         </ul>
-
+        
+        {/* <div style={{backgroundColor: 'yellow'}}> */}
         <Switch>
           <Route exact path="/">
-            home
+            <HomePage />
           </Route>
-          <Route path="/FunctionVsClass">
-            <FunctionVsClass />
-          </Route>
-          <Route path="/OrderSimpleNested">
-            <OrderSimpleNested />
-          </Route>
-          <Route path="/OrderByUrlParam">
-            <OrderByUrlParam />
-          </Route>
-          <Route path="/OrderByQueryParam">
-            <OrderByQueryParam />
+          <Route path="/user">
+            <UserPage />
           </Route>
         </Switch>
-      </div>
-    </Router>
+        {/* </div> */}
+      </Router>
     </>
-  )
+  );
 }
 
 function App() {
   return (
-    <div className="App">
-      {/*tes*/}
-      {/*<FunctionVsClass/>*/}
-      <Navigation/>
-    </div>
+    <Provider store={store}>
+      <Navigation />
+    </Provider>
   );
 }
 
